@@ -131,15 +131,14 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  let result = [recipe.ingredients];
-  result.forEach((element) => {
-    element.replace(/./g, '');
-    return;
-
+  let result = [];
+  recipe.ingredients.forEach(ingredient => {
+    let withoutAmount = ingredient.slice(ingredient.indexOf(' ') + 1);
+    let withoutUnit = withoutAmount.slice(withoutAmount.indexOf(' ') + 1);
+    result.push(withoutUnit);
   });
   return result;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
@@ -165,8 +164,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
-  let result = [];
-  // Solution code here...
+  let result = [recipe.ingredients];
   return result;
 };
 
